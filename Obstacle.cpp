@@ -1,7 +1,7 @@
 #include "Obstacle.h"
 
 Obstacle::Obstacle() {
-	
+	posY = GetRandomValue(GetScreenHeight() * 0.25f, GetScreenHeight());
 }
 
 Obstacle::~Obstacle() {
@@ -35,7 +35,15 @@ float Obstacle::GetWidth() {
 	return width;
 }
 
+float Obstacle::GetHeight() {
+	return height;
+}
+
 void Obstacle::Movement() {
-	posX += 50 * GetFrameTime();
+	posX -= 100 * GetFrameTime();
+	if (posX + width <= 0) {
+		posX = GetScreenWidth();
+		posY = GetRandomValue(GetScreenHeight() * 0.25f, GetScreenHeight());
+	}
 }
 

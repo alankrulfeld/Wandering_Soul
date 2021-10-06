@@ -42,7 +42,7 @@ float Player::GetRadius() {
 
 void Player::Movement() {
 
-    if (IsKeyPressed(KEY_SPACE) && velocityY >= gravity /5.0f) {
+    if (IsKeyPressed(KEY_SPACE)) {
         accelerationY = 0;
         velocityY = -gravity / 2;
     }
@@ -60,5 +60,7 @@ void Player::Movement() {
     else {
         velocityY += accelerationY * GetFrameTime();
     }
+
+    if((velocityY > 0 && posY <= GetScreenHeight()-radius) || (velocityY < 0 && posY >= radius))
     posY += velocityY * GetFrameTime();
 }

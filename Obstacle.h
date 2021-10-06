@@ -5,7 +5,9 @@ class Obstacle {
 private:
 	float posX;
 	float posY;
-	float width;
+
+	const float width = 80;
+	const float height = GetScreenHeight() * 0.75f;
 	bool isActive;
 public:
 	Obstacle();
@@ -17,6 +19,7 @@ public:
 	void SetPositionY(float positionY);
 	float GetPositionY();
 	float GetWidth();
+	float GetHeight();
 	void Movement();
 };
 

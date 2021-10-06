@@ -1,5 +1,6 @@
 #pragma once
 #include "Player.h"
+#include "Obstacle.h"
 
 class Game {
 private:
@@ -9,6 +10,7 @@ private:
 	bool isPaused;
 	bool goToGame;
 	Player* player;
+	Obstacle* obstacle[3];
 public:
 	const int screenWidth = 1366;
 	const int screenHeight = 768;

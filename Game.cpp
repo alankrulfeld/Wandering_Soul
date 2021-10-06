@@ -2,6 +2,10 @@
 
 Game::Game() {
 	player = new Player();
+	for (int i = 0; i < 3; i++) {
+		obstacle[i] = new Obstacle();
+		obstacle[i]->SetPositionX(GetScreenWidth() + 500 * i);
+	}
 }
 
 Game::~Game() {
@@ -21,13 +25,19 @@ void Game::InputGame() {
 }
 
 void Game::UpdateGame() {
-	
+	for (int i = 0; i < 3; i++) {
+		obstacle[i]->Movement();
+	}
 }
 
 void Game::DrawGame() {
 	BeginDrawing();
-	ClearBackground(SKYBLUE);
-	DrawCircle(player->GetPositionX(), player->GetPositionY(), player->GetRadius() ,BLUE);
+	ClearBackground(DARKBLUE);
+	DrawCircle(player->GetPositionX(), player->GetPositionY(), player->GetRadius() , YELLOW);
+	for (int i = 0; i < 3; i++) {
+		DrawRectangle(obstacle[i]->GetPositionX(), obstacle[i]->GetPositionY(), obstacle[i]->GetWidth(), obstacle[i]->GetHeight(), GREEN);
+		DrawRectangle(obstacle[i]->GetPositionX(), 0, obstacle[i]->GetWidth(), obstacle[i]->GetHeight() - (GetScreenHeight() - obstacle[i]->GetPositionY()), GREEN);
+	}
 	EndDrawing();
 }
 
