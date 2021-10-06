@@ -152,11 +152,13 @@ XCOPY "$(ProjectDir)assets" "$(TargetDir)assets" /e /h /y /s</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Intro.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Wandering_Soul.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="Intro.h" />
     <ClInclude Include="Textures.h" />
   </ItemGroup>
