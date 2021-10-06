@@ -98,6 +98,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\lib\raylib-3.7.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>raylib.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -156,6 +157,7 @@ XCOPY "$(ProjectDir)assets" "$(TargetDir)assets" /e /h /y /s</Command>
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Intro.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Wandering_Soul.cpp" />
   </ItemGroup>
@@ -164,6 +166,7 @@ XCOPY "$(ProjectDir)assets" "$(TargetDir)assets" /e /h /y /s</Command>
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Intro.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Textures.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

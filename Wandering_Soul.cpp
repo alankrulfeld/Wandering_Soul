@@ -1,6 +1,8 @@
-#include <iostream>
+#include "Intro.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Intro* intro = new Intro();
+	intro->StartIntro();
+	delete intro;
 }
