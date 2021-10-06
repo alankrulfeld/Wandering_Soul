@@ -1,5 +1,5 @@
 #pragma once
-#include "Textures.h"
+#include "Player.h"
 
 class Game {
 private:
@@ -8,7 +8,7 @@ private:
 	bool replay;
 	bool isPaused;
 	bool goToGame;
-
+	Player* player;
 public:
 	const int screenWidth = 1366;
 	const int screenHeight = 768;
