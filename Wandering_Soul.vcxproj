@@ -157,6 +157,7 @@ XCOPY "$(ProjectDir)assets" "$(TargetDir)assets" /e /h /y /s</Command>
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Intro.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Wandering_Soul.cpp" />
@@ -166,6 +167,7 @@ XCOPY "$(ProjectDir)assets" "$(TargetDir)assets" /e /h /y /s</Command>
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Intro.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Textures.h" />
   </ItemGroup>
