@@ -152,7 +152,11 @@ XCOPY "$(ProjectDir)assets" "$(TargetDir)assets" /e /h /y /s</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Wandering_Soul.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Textures.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
