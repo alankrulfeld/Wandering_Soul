@@ -29,5 +29,6 @@ public:
 	void UpdateDrawFrame();  // Update and Draw (one frame)
 	bool GoToMenu();
 	bool GoToGame();
+	void CheckCollision();
 };
 

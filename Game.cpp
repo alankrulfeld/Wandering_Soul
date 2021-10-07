@@ -10,6 +10,9 @@ Game::Game() {
 
 Game::~Game() {
 	delete player;
+	for (int i = 0; i < 3; i++) {
+		delete obstacle[i];
+	}
 }
 
 bool Game::GetInited() {
@@ -27,6 +30,10 @@ void Game::InputGame() {
 void Game::UpdateGame() {
 	for (int i = 0; i < 3; i++) {
 		obstacle[i]->Movement();
+	}
+	CheckCollision();
+	if(!(player->GetAlive())){
+		goToGame = true;
 	}
 }
 
@@ -51,9 +58,20 @@ void Game::UpdateDrawFrame() {
 }
 
 bool Game::GoToMenu() {
-	return false;
+	return goToMenu;
 }
 
 bool Game::GoToGame() {
-	return false;
+	return goToGame;
+}
+
+void Game::CheckCollision() {
+	for (int i = 0; i < 3; i++) {
+		if (((player->GetPositionY() + player->GetRadius()) >= obstacle[i]->GetPositionY()) && ((player->GetPositionX() + player->GetRadius()) >= obstacle[i]->GetPositionX()) && ((player->GetPositionX() - player->GetRadius()) <= (obstacle[i]->GetPositionX() + obstacle[i]->GetWidth()))) {
+			player->SetAlive(false);
+		}
+		if (((player->GetPositionY() - player->GetRadius()) <= (obstacle[i]->GetHeight() - (GetScreenHeight() - obstacle[i]->GetPositionY()))) && ((player->GetPositionX() + player->GetRadius()) >= obstacle[i]->GetPositionX()) && ((player->GetPositionX() - player->GetRadius()) <= (obstacle[i]->GetPositionX() + obstacle[i]->GetWidth()))) {
+			player->SetAlive(false);
+		}
+	}
 }

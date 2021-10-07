@@ -7,6 +7,7 @@ Player::Player() {
     velocityY = 0;
     accelerationY = 0;
     gravity = 300;
+    isAlive = true;
 }
 
 Player::~Player() {
