@@ -6,7 +6,7 @@ enum class STATES { MENU, EXIT, GAME, SHOP };
 
 class GameManager {
 private:
-	STATES currentState = STATES::GAME;
+	STATES currentState = STATES::MENU;
 	bool isThisStateStarting = true;
 	bool isPlaying;
 	Menu* menu;

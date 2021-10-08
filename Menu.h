@@ -11,6 +11,10 @@ private:
 	bool exitGame;
 	int option;
 	float scrolling;
+	Rectangle button0Area;
+	Rectangle button1Area;
+	Rectangle button2Area;
+	Rectangle button3Area;
 public:
 	const float screenWidth = 1366;
 	const float screenHeight = 768;

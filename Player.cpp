@@ -43,7 +43,7 @@ float Player::GetRadius() {
 
 void Player::Movement() {
 
-    if (IsKeyPressed(KEY_SPACE)) {
+    if ((IsKeyPressed(KEY_SPACE) || IsMouseButtonPressed(MOUSE_LEFT_BUTTON))) {
         accelerationY = 0;
         velocityY = -gravity / 2;
     }
