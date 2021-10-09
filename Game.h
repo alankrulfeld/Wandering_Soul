@@ -11,6 +11,9 @@ private:
 	bool goToGame;
 	Player* player;
 	Obstacle* obstacle[3];
+	Rectangle buttonP;
+	Rectangle buttonResumeArea;
+	Rectangle buttonExitArea;
 public:
 	const int screenWidth = 1366;
 	const int screenHeight = 768;
