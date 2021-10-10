@@ -28,27 +28,6 @@ void Game::InitGame() {
 
 void Game::InputGame() {
 	if (isPaused) {
-
-	}
-	if (!isPaused) {
-		player->Movement();
-	}
-}
-
-void Game::UpdateGame() {
-	if (!isPaused) {
-		if (CheckCollisionPointRec(GetMousePosition(), buttonP) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-			isPaused = !isPaused;
-		}
-		for (int i = 0; i < 3; i++) {
-			obstacle[i]->Movement();
-		}
-		CheckCollision();
-		if (!(player->GetAlive())) {
-			goToGame = true;
-		}
-	}
-	else if (isPaused) {
 		if (CheckCollisionPointRec(GetMousePosition(), buttonP) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
 			isPaused = !isPaused;
 		}
@@ -59,11 +38,32 @@ void Game::UpdateGame() {
 			goToMenu = true;
 		}
 	}
+	else if (!isPaused) {
+		if (CheckCollisionPointRec(GetMousePosition(), buttonP) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+			isPaused = !isPaused;
+		}
+		else {
+			player->Movement();
+		}
+		for (int i = 0; i < 3; i++) {
+			obstacle[i]->Movement();
+		}
+	}
+}
+
+void Game::UpdateGame() {
+	if (!isPaused) {
+		CheckCollision();
+		if (!(player->GetAlive())) {
+			goToGame = true;
+		}
+	}
 }
 
 void Game::DrawGame() {
 	BeginDrawing();
 	ClearBackground(DARKBLUE);
+	DrawText("Space Bar or Left Click to Jump", GetScreenWidth() / 2 - TextLength("Space Bar or Left Click to Jump")*10/2, GetScreenHeight() / 2, 20, WHITE);
 	DrawCircle(player->GetPositionX(), player->GetPositionY(), player->GetRadius(), YELLOW);
 	for (int i = 0; i < 3; i++) {
 		DrawRectangle(obstacle[i]->GetPositionX(), obstacle[i]->GetPositionY(), obstacle[i]->GetWidth(), obstacle[i]->GetHeight(), GREEN);
@@ -71,9 +71,12 @@ void Game::DrawGame() {
 	}
 	if (isPaused) {
 		DrawRectangle(buttonResumeArea.x, buttonResumeArea.y, buttonResumeArea.width, buttonResumeArea.height, RED);
+		DrawText("Resume", buttonResumeArea.x, buttonResumeArea.y, 20, WHITE);
 		DrawRectangle(buttonExitArea.x, buttonExitArea.y, buttonExitArea.width, buttonExitArea.height, RED);
+		DrawText("Exit", buttonExitArea.x, buttonExitArea.y, 20, WHITE);
 	}
 	DrawRectangle(buttonP.x, buttonP.y, buttonP.width, buttonP.height, RED);
+	DrawText("Pause", buttonP.x, buttonP.y, 20, WHITE);
 	EndDrawing();
 }
 
