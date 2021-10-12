@@ -16,6 +16,13 @@ private:
 	Rectangle buttonExitArea;
 	Texture2D soulAnimationTexture;
 	Textures* soulAnimation;
+	Texture2D background;
+	Texture2D mid;
+	Texture2D far;
+	Texture2D close;
+	float scrollingBack;
+	float scrollingMid;
+	float scrollingFore;
 public:
 	const int screenWidth = 1366;
 	const int screenHeight = 768;

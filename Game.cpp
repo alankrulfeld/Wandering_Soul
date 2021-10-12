@@ -14,6 +14,21 @@ Game::Game() {
 	soulAnimationTexture.width /= 12;
 	soulAnimationTexture.height /= 12;
 	soulAnimation = new Textures();
+	background = LoadTexture("assets/bg.png");
+	far = LoadTexture("assets/far1.png");
+	mid = LoadTexture("assets/mid.png");
+	close = LoadTexture("assets/close.png");
+	background.width = GetScreenWidth();
+	background.height = GetScreenHeight();
+	far.width = GetScreenWidth()/2;
+	far.height = GetScreenHeight()/2;
+	mid.width = GetScreenWidth()/2;
+	mid.height = GetScreenHeight()/2;
+	close.width = GetScreenWidth()/2;
+	close.height = GetScreenHeight()/2;
+	scrollingBack = 0.0f;
+	scrollingMid = 0.0f;
+	scrollingFore = 0.0f;
 }
 
 Game::~Game() {
@@ -64,11 +79,29 @@ void Game::UpdateGame() {
 		}
 		player->UpdateAnimation(soulAnimation,soulAnimationTexture);
 	}
+	scrollingBack -= 0.1f;
+	scrollingMid -= 0.5f;
+	scrollingFore -= 1.0f;
+
+	if (scrollingBack <= -far.width * 2) scrollingBack = 0;
+	if (scrollingMid <= -mid.width * 2) scrollingMid = 0;
+	if (scrollingFore <= -close.width * 2) scrollingFore = 0;
 }
 
 void Game::DrawGame() {
 	BeginDrawing();
 	ClearBackground(DARKBLUE);
+
+	DrawTextureEx(background, { 0,0 }, 0, 2, WHITE);
+	DrawTextureEx(far, { scrollingBack, 0 }, 0.0f, 2.0f, WHITE);
+	DrawTextureEx(far, { far.width * 2 + scrollingBack, 0 }, 0.0f, 2.0f, WHITE);
+
+	DrawTextureEx(mid, { scrollingMid, 0 }, 0.0f, 2.0f, WHITE);
+	DrawTextureEx(mid, { mid.width * 2 + scrollingMid, 0 }, 0.0f, 2.0f, WHITE);
+
+	DrawTextureEx(close, { scrollingFore, 0 }, 0.0f, 2.0f, WHITE);
+	DrawTextureEx(close, { close.width * 2 + scrollingFore, 0 }, 0.0f, 2.0f, WHITE);
+
 	DrawText("Space Bar or Left Click to Jump", GetScreenWidth() / 2 - TextLength("Space Bar or Left Click to Jump") * 10 / 2, GetScreenHeight() / 2, 20, WHITE);
 	DrawCircle(player->GetPositionX(), player->GetPositionY(), player->GetRadius(), YELLOW);
 	DrawTextureRec(soulAnimationTexture, player->GetRec(),soulAnimation->GetPosition(), WHITE);
