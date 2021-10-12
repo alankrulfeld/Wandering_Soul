@@ -14,6 +14,8 @@ private:
 	Rectangle buttonP;
 	Rectangle buttonResumeArea;
 	Rectangle buttonExitArea;
+	Texture2D soulAnimationTexture;
+	Textures* soulAnimation;
 public:
 	const int screenWidth = 1366;
 	const int screenHeight = 768;

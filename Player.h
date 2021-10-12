@@ -9,6 +9,9 @@ private:
 	float accelerationY;
 	float radius;
 	float gravity;
+	float frame;
+	float framesCounter;
+	Rectangle frameRec;
 public:
 	Player();
 	~Player();
@@ -20,5 +23,7 @@ public:
 	float GetPositionY();
 	float GetRadius();
 	void Movement();
+	void UpdateAnimation(Textures* text, Texture2D text2D);
+	Rectangle GetRec();
 };
 

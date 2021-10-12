@@ -9,6 +9,11 @@ Game::Game() {
 	buttonP = { (float)GetScreenWidth() - 100, 0, 100, 100 };
 	buttonResumeArea = {(float)GetScreenWidth()/2-200,(float)GetScreenHeight()/2,100,50};
 	buttonExitArea = { (float)GetScreenWidth() / 2 + 200,(float)GetScreenHeight() / 2,100,50 };
+	goToGame = false;
+	soulAnimationTexture = LoadTexture("assets/soulAnimation.png");
+	soulAnimationTexture.width /= 12;
+	soulAnimationTexture.height /= 12;
+	soulAnimation = new Textures();
 }
 
 Game::~Game() {
@@ -57,14 +62,16 @@ void Game::UpdateGame() {
 		if (!(player->GetAlive())) {
 			goToGame = true;
 		}
+		player->UpdateAnimation(soulAnimation,soulAnimationTexture);
 	}
 }
 
 void Game::DrawGame() {
 	BeginDrawing();
 	ClearBackground(DARKBLUE);
-	DrawText("Space Bar or Left Click to Jump", GetScreenWidth() / 2 - TextLength("Space Bar or Left Click to Jump")*10/2, GetScreenHeight() / 2, 20, WHITE);
+	DrawText("Space Bar or Left Click to Jump", GetScreenWidth() / 2 - TextLength("Space Bar or Left Click to Jump") * 10 / 2, GetScreenHeight() / 2, 20, WHITE);
 	DrawCircle(player->GetPositionX(), player->GetPositionY(), player->GetRadius(), YELLOW);
+	DrawTextureRec(soulAnimationTexture, player->GetRec(),soulAnimation->GetPosition(), WHITE);
 	for (int i = 0; i < 3; i++) {
 		DrawRectangle(obstacle[i]->GetPositionX(), obstacle[i]->GetPositionY(), obstacle[i]->GetWidth(), obstacle[i]->GetHeight(), GREEN);
 		DrawRectangle(obstacle[i]->GetPositionX(), 0, obstacle[i]->GetWidth(), obstacle[i]->GetHeight() - (GetScreenHeight() - obstacle[i]->GetPositionY()), GREEN);

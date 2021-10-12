@@ -1,7 +1,7 @@
 #include "Obstacle.h"
 
 Obstacle::Obstacle() {
-	posY = GetRandomValue(GetScreenHeight() * 0.25f, GetScreenHeight());
+	posY = GetRandomValue(GetScreenHeight() * 0.50f, GetScreenHeight() - GetScreenHeight() * 0.25f);
 }
 
 Obstacle::~Obstacle() {
@@ -43,7 +43,7 @@ void Obstacle::Movement() {
 	posX -= 100 * GetFrameTime();
 	if (posX + width <= 0) {
 		posX = GetScreenWidth();
-		posY = GetRandomValue(GetScreenHeight() * 0.25f, GetScreenHeight());
+		posY = GetRandomValue(GetScreenHeight() * 0.50f, GetScreenHeight() - GetScreenHeight() * 0.25f);
 	}
 }
 

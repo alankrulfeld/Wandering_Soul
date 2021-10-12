@@ -3,11 +3,13 @@
 Player::Player() {
     posX = GetScreenWidth() / 4;
     posY = GetScreenHeight() / 2;
-    radius = 20;
+    radius = 50;
     velocityY = 0;
     accelerationY = 0;
     gravity = 300;
     isAlive = true;
+    frame = 0;
+    framesCounter = 0;
 }
 
 Player::~Player() {
@@ -65,3 +67,22 @@ void Player::Movement() {
     if((velocityY > 0 && posY <= GetScreenHeight()-radius) || (velocityY < 0 && posY >= radius))
     posY += velocityY * GetFrameTime();
 }
+
+void Player::UpdateAnimation(Textures* text, Texture2D text2D) {
+    text->SetPosition(posX - text2D.width/16, posY - text2D.height/2);
+    frameRec = { (float)text2D.width / 8 * frame , 0.0f, (float)text2D.width / 8 , (float)text2D.height };
+    framesCounter++;
+
+    if (framesCounter >= (60 / 8)){
+        framesCounter = 0;
+        frame++;
+
+        if (frame > 8) frame = 0;
+    }
+}
+
+Rectangle Player::GetRec() {
+    return frameRec;
+}
+
+

@@ -7,7 +7,7 @@ private:
 	float posY;
 
 	const float width = 80;
-	const float height = GetScreenHeight() * 0.75f;
+	const float height = GetScreenHeight() * 0.65f;
 	bool isActive;
 public:
 	Obstacle();
