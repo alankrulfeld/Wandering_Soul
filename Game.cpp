@@ -10,9 +10,9 @@ Game::Game() {
 	buttonResumeArea = {(float)GetScreenWidth()/2-200,(float)GetScreenHeight()/2,100,50};
 	buttonExitArea = { (float)GetScreenWidth() / 2 + 200,(float)GetScreenHeight() / 2,100,50 };
 	goToGame = false;
-	soulAnimationTexture = LoadTexture("assets/soulAnimation.png");
-	soulAnimationTexture.width /= 12;
-	soulAnimationTexture.height /= 12;
+	soulAnimationTexture = LoadTexture("assets/SoulAnimation1.png");
+	soulAnimationTexture.width /= 7;
+	soulAnimationTexture.height /= 7;
 	soulAnimation = new Textures();
 	background = LoadTexture("assets/bg.png");
 	far = LoadTexture("assets/far1.png");
@@ -78,14 +78,15 @@ void Game::UpdateGame() {
 			goToGame = true;
 		}
 		player->UpdateAnimation(soulAnimation,soulAnimationTexture);
-	}
-	scrollingBack -= 0.1f;
-	scrollingMid -= 0.5f;
-	scrollingFore -= 1.0f;
+		scrollingBack -= 0.1f;
+		scrollingMid -= 0.5f;
+		scrollingFore -= 1.0f;
 
-	if (scrollingBack <= -far.width * 2) scrollingBack = 0;
-	if (scrollingMid <= -mid.width * 2) scrollingMid = 0;
-	if (scrollingFore <= -close.width * 2) scrollingFore = 0;
+		if (scrollingBack <= -far.width * 2) scrollingBack = 0;
+		if (scrollingMid <= -mid.width * 2) scrollingMid = 0;
+		if (scrollingFore <= -close.width * 2) scrollingFore = 0;
+	}
+	
 }
 
 void Game::DrawGame() {
