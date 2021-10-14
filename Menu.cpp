@@ -59,7 +59,7 @@ void Menu::Draw() {
 	ClearBackground(RAYWHITE);
 	if (goToCredits) {
 		DrawRectangle(returnButtonArea.x, returnButtonArea.y, returnButtonArea.width, returnButtonArea.height, RED);
-		DrawText("Version 0.1", 0, 0, 20, BLACK);
+		DrawText("Version 0.2", 0, 0, 20, BLACK);
 		DrawText("Return", returnButtonArea.x, returnButtonArea.y, 20, WHITE);
 	}
 	else {
@@ -67,7 +67,7 @@ void Menu::Draw() {
 		DrawRectangle(button1Area.x, button1Area.y, button1Area.width, button1Area.height, RED);
 		DrawRectangle(button2Area.x, button2Area.y, button2Area.width, button2Area.height, RED);
 		DrawRectangle(button3Area.x, button3Area.y, button3Area.width, button3Area.height, RED);
-		DrawText("Version 0.1", 0, 0, 20, BLACK);
+		DrawText("Version 0.2", 0, 0, 20, BLACK);
 		DrawText("Play",button0Area.x,button0Area.y,20,WHITE);
 		DrawText("Resolution", button1Area.x, button1Area.y, 20, WHITE);
 		DrawText("Credits", button2Area.x, button2Area.y, 20, WHITE);

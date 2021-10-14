@@ -104,7 +104,7 @@ void Game::DrawGame() {
 	DrawTextureEx(close, { close.width * 2 + scrollingFore, 0 }, 0.0f, 2.0f, WHITE);
 
 	DrawText("Space Bar or Left Click to Jump", GetScreenWidth() / 2 - TextLength("Space Bar or Left Click to Jump") * 10 / 2, GetScreenHeight() / 2, 20, WHITE);
-	DrawCircle(player->GetPositionX(), player->GetPositionY(), player->GetRadius(), YELLOW);
+	//DrawCircle(player->GetPositionX(), player->GetPositionY(), player->GetRadius(), YELLOW);
 	DrawTextureRec(soulAnimationTexture, player->GetRec(),soulAnimation->GetPosition(), WHITE);
 	for (int i = 0; i < 3; i++) {
 		DrawRectangle(obstacle[i]->GetPositionX(), obstacle[i]->GetPositionY(), obstacle[i]->GetWidth(), obstacle[i]->GetHeight(), GREEN);
