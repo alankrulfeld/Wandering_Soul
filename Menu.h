@@ -39,6 +39,8 @@ public:
 	bool ExitMenuGoToCredits();
 	bool ExitMenuGoToOptions();
 	bool ExitMenuGoToGame();
+	bool ExitMenuGoToGamePlayers2();
+
 	bool ExitMenuGoToShop();
 };
 

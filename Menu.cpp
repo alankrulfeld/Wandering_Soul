@@ -118,6 +118,10 @@ bool Menu::ExitMenuGoToGame()
 {
 	return goToGame;
 }
+bool Menu::ExitMenuGoToGamePlayers2()
+{
+	return goToGamePlayers2;
+}
 
 bool Menu::ExitMenuGoToShop()
 {
