@@ -5,7 +5,8 @@
 
 using namespace std;
 
-class Intro {
+class Intro
+{
 private:
 	Music introLogoAudio;
 	Texture2D logoTexture;

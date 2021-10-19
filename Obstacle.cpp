@@ -1,47 +1,59 @@
 #include "Obstacle.h"
 
-Obstacle::Obstacle() {
+Obstacle::Obstacle()
+{
 	posY = GetRandomValue(GetScreenHeight() * 0.50f, GetScreenHeight() - GetScreenHeight() * 0.25f);
 }
 
-Obstacle::~Obstacle() {
+Obstacle::~Obstacle()
+{
 }
 
-void Obstacle::SetActive(bool isActive) {
+void Obstacle::SetActive(bool isActive)
+{
 	this->isActive = isActive;
 }
 
-bool Obstacle::GetActive() {
+bool Obstacle::GetActive()
+{
 	return isActive;
 }
 
-void Obstacle::SetPositionX(float positionX) {
+void Obstacle::SetPositionX(float positionX)
+{
 	posX = positionX;
 }
 
-float Obstacle::GetPositionX() {
+float Obstacle::GetPositionX()
+{
 	return posX;
 }
 
-void Obstacle::SetPositionY(float positionY) {
+void Obstacle::SetPositionY(float positionY)
+{
 	posY = positionY;
 }
 
-float Obstacle::GetPositionY() {
+float Obstacle::GetPositionY()
+{
 	return posY;
 }
 
-float Obstacle::GetWidth() {
+float Obstacle::GetWidth()
+{
 	return width;
 }
 
-float Obstacle::GetHeight() {
+float Obstacle::GetHeight()
+{
 	return height;
 }
 
-void Obstacle::Movement() {
+void Obstacle::Movement()
+{
 	posX -= 100 * GetFrameTime();
-	if (posX + width <= 0) {
+	if (posX + width <= 0)
+	{
 		posX = GetScreenWidth();
 		posY = GetRandomValue(GetScreenHeight() * 0.50f, GetScreenHeight() - GetScreenHeight() * 0.25f);
 	}

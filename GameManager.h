@@ -2,9 +2,13 @@
 #include "Menu.h"
 #include "Game.h"
 
-enum class STATES { MENU, EXIT, GAME, SHOP };
+enum class STATES
+{
+	MENU, EXIT, GAME, SHOP
+};
 
-class GameManager {
+class GameManager
+{
 private:
 	STATES currentState = STATES::MENU;
 	bool isThisStateStarting = true;

@@ -1,6 +1,7 @@
 #pragma once
 #include "Textures.h"
-class Player {
+class Player
+{
 private:
 	bool isAlive = false;
 	float posX;

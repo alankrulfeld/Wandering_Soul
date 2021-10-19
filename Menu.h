@@ -1,10 +1,12 @@
 #pragma once
 #include "Textures.h"
 
-class Menu {
+class Menu
+{
 private:
 	bool menuInited;
 	bool goToGame;
+	bool goToGamePlayers2;
 	bool goToShop;
 	bool goToCredits;
 	bool goToOptions;
@@ -15,6 +17,8 @@ private:
 	Rectangle button1Area;
 	Rectangle button2Area;
 	Rectangle button3Area;
+	Rectangle button4Area;
+
 	Rectangle returnButtonArea;
 public:
 	const float screenWidth = 1366;

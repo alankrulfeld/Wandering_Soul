@@ -2,7 +2,8 @@
 #include "Player.h"
 #include "Obstacle.h"
 
-class Game {
+class Game
+{
 private:
 	bool gameInited;
 	bool goToMenu;

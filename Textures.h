@@ -1,7 +1,8 @@
 #pragma once
 #include "raylib.h"
 
-class Textures {
+class Textures
+{
 private:
 	Texture2D texture;
 	Rectangle frameRec;

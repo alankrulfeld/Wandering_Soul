@@ -1,6 +1,7 @@
 #include "Intro.h"
 
-Intro::Intro() {
+Intro::Intro()
+{
 	InitWindow(screenWidth, screenHeight, "Ultimate Asteroid");
 	InitAudioDevice();
 	introLogoAudio = LoadMusicStream("assets/hoho1.mp3");
@@ -13,20 +14,23 @@ Intro::Intro() {
 	isOn = true;
 }
 
-Intro::~Intro() {
+Intro::~Intro()
+{
 	delete logo;
 	delete GM;
 	UnloadMusicStream(introLogoAudio);
 	UnloadTexture(logoTexture);
 }
 
-void Intro::StartIntro() {
+void Intro::StartIntro()
+{
 	PlayMusicStream(introLogoAudio);
 	bool isPlaying;
 	int timePlayed;
 	int totalTime = GetMusicTimeLength(introLogoAudio);
 
-	while (GetMusicTimePlayed(introLogoAudio) < 4) {
+	while (GetMusicTimePlayed(introLogoAudio) < 4)
+	{
 		BeginDrawing();
 		int timePlayed = GetMusicTimePlayed(introLogoAudio);
 		UpdateMusicStream(introLogoAudio);
@@ -34,7 +38,8 @@ void Intro::StartIntro() {
 		DrawTextureRec(logo->GetTexture(), logo->GetFrameRec(), logo->GetPosition(), WHITE);
 		EndDrawing();
 	}
-	while (!WindowShouldClose() && isOn) {
+	while (!WindowShouldClose() && isOn)
+	{
 		GM->StartGameManager();
 		isOn = GM->QuitGame();
 	}

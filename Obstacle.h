@@ -1,7 +1,8 @@
 #pragma once
 #include "Textures.h"
 
-class Obstacle {
+class Obstacle
+{
 private:
 	float posX;
 	float posY;
