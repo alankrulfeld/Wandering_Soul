@@ -4,7 +4,7 @@
 
 enum class STATES
 {
-	MENU, EXIT, GAME, SHOP
+	MENU, EXIT, GAME,GAME2PLAYERS, SHOP
 };
 
 class GameManager

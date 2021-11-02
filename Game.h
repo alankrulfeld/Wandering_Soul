@@ -27,10 +27,10 @@ private:
 public:
 	const int screenWidth = 1366;
 	const int screenHeight = 768;
-	float currentScreenWidth = GetScreenWidth();
-	float currentScreenHeight = GetScreenHeight();
-	float windowReSizeWidth = currentScreenWidth / screenWidth;
-	float windowReSizeHeight = currentScreenHeight / screenHeight;
+	int currentScreenWidth = GetScreenWidth();
+	int currentScreenHeight = GetScreenHeight();
+	int windowReSizeWidth = currentScreenWidth / screenWidth;
+	int windowReSizeHeight = currentScreenHeight / screenHeight;
 	Game();
 	~Game();
 	bool GetInited();

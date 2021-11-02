@@ -83,11 +83,11 @@ void Menu::Draw()
 	{
 		DrawRectangle(returnButtonArea.x, returnButtonArea.y, returnButtonArea.width, returnButtonArea.height, RED);
 		DrawText("Credits", GetScreenWidth()/2, 10, 60, BLACK);
-		DrawText("Alan Krulfeld= v0.3", 0, 60, 40, BLACK);
+		DrawText("Alan Krulfeld= v0.3 - v1.0", 0, 60, 40, BLACK);
 		DrawText("Francisco Cavenaghi= v0.1- v0.2", 0, 160, 40, BLACK);
 
 
-		DrawText("Version 0.3", 0, 740, 20, BLACK);
+		DrawText("Version 1.0", 0, 740, 20, BLACK);
 		DrawText("Return", returnButtonArea.x, returnButtonArea.y, 20, WHITE);
 	}
 	else
@@ -98,7 +98,7 @@ void Menu::Draw()
 		DrawRectangle(button3Area.x, button3Area.y, button3Area.width, button3Area.height, RED);
 		DrawRectangle(button4Area.x, button4Area.y, button4Area.width, button3Area.height, RED);
 
-		DrawText("Version 0.3", 0, 0, 20, BLACK);
+		DrawText("Version 1.0", 0, 0, 20, BLACK);
 		DrawText("1player", button0Area.x, button0Area.y, 20, WHITE);
 		DrawText("Resolution", button1Area.x, button1Area.y, 20, WHITE);
 		DrawText("Credits", button2Area.x, button2Area.y, 20, WHITE);
